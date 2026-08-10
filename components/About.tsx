@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { profile } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import avatar from "@/public/avatar.webp";
 
 function LinkText({ href, children }: { href: string; children: ReactNode }) {
   return (
@@ -20,10 +22,8 @@ export default function About() {
     <section id="about" className="py-24 border-t border-border">
       <div className="mx-auto max-w-3xl px-6 sm:px-8 text-center">
         <Reveal>
-          <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-accent-soft to-accent">
-            <span className="font-display font-extrabold text-3xl text-background">
-              {profile.initials}
-            </span>
+          <div className="mx-auto flex h-28 w-28 items-center justify-center overflow-hidden rounded-full">
+            <Image src={avatar} alt={profile.name} className="h-full w-full object-cover" />
           </div>
 
           <p className="mt-6 text-sm font-display font-bold uppercase tracking-widest text-accent">

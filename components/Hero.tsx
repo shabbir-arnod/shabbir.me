@@ -4,7 +4,7 @@ import heroIllustration from "@/public/hero-illustration.webp";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-16 sm:pt-40">
+    <section id="top" className="relative overflow-hidden pt-32 sm:pt-40">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(77,141,255,0.12),_transparent_55%)]" />
 
       <div className="mx-auto max-w-6xl w-full px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -35,13 +35,13 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-lg">
+        <div className="relative mx-auto w-full max-w-xl self-end">
           <Image
             src={heroIllustration}
             alt="Illustration of Shabbir working at a laptop, product roadmap and code on a second screen"
             placeholder="blur"
             priority
-            sizes="(min-width: 1024px) 460px, 90vw"
+            sizes="(min-width: 1024px) 540px, 90vw"
             className="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.55)]"
           />
         </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { profile } from "@/lib/data";
+import Image from "next/image";
+import avatar from "@/public/avatar.webp";
 
 const links = [
   { href: "#projects", label: "Projects" },
@@ -29,10 +30,8 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto max-w-6xl px-6 sm:px-8 h-20 flex items-center justify-between">
-        <a href="#top" aria-label="Home" className="flex items-center">
-          <span className="blob flex h-11 w-11 items-center justify-center bg-gradient-to-br from-accent-soft to-accent text-sm font-display font-extrabold text-background">
-            {profile.initials}
-          </span>
+        <a href="#top" aria-label="Home" className="blob flex h-11 w-11 items-center justify-center overflow-hidden">
+          <Image src={avatar} alt="" className="h-full w-full object-cover" priority />
         </a>
 
         <ul className="hidden md:flex items-center gap-8 text-sm font-display font-semibold text-foreground">
