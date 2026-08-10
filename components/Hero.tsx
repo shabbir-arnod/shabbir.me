@@ -35,14 +35,14 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-md rounded-3xl overflow-hidden border border-border shadow-2xl">
+        <div className="relative mx-auto w-full max-w-lg">
           <Image
             src={heroIllustration}
             alt="Illustration of Shabbir working at a laptop, product roadmap and code on a second screen"
             placeholder="blur"
             priority
-            sizes="(min-width: 1024px) 420px, 90vw"
-            className="w-full h-auto"
+            sizes="(min-width: 1024px) 460px, 90vw"
+            className="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.55)]"
           />
         </div>
       </div>
