@@ -4,17 +4,19 @@ import SectionHeading from "@/components/SectionHeading";
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 border-t border-border">
+    <section id="skills" className="py-24 border-t border-border">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <Reveal>
           <SectionHeading eyebrow="Skills" title="The toolkit behind the roadmap" />
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-10">
           {skillGroups.map((group, i) => (
             <Reveal key={group.title} delay={i * 100}>
               <div>
-                <p className="font-display text-xl text-foreground mb-4">{group.title}</p>
+                <p className="font-display font-bold text-lg text-foreground mb-4">
+                  {group.title}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
                     <span

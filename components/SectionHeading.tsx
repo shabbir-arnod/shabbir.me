@@ -7,10 +7,10 @@ export default function SectionHeading({
 }) {
   return (
     <div>
-      <p className="text-sm uppercase tracking-[0.25em] text-accent mb-4">
+      <p className="text-sm font-display font-bold uppercase tracking-widest text-accent mb-3">
         {eyebrow}
       </p>
-      <h2 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground max-w-2xl">
+      <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-foreground max-w-2xl">
         {title}
       </h2>
     </div>
