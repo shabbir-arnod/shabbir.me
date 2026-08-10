@@ -1,5 +1,6 @@
+import Image from "next/image";
 import { profile } from "@/lib/data";
-import DeskIllustration from "@/components/DeskIllustration";
+import heroIllustration from "@/public/hero-illustration.webp";
 
 export default function Hero() {
   return (
@@ -34,7 +35,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <DeskIllustration />
+        <div className="relative mx-auto w-full max-w-md rounded-3xl overflow-hidden border border-border shadow-2xl">
+          <Image
+            src={heroIllustration}
+            alt="Illustration of Shabbir working at a laptop, product roadmap and code on a second screen"
+            placeholder="blur"
+            priority
+            sizes="(min-width: 1024px) 420px, 90vw"
+            className="w-full h-auto"
+          />
+        </div>
       </div>
     </section>
   );
