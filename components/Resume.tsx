@@ -5,7 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 
 export default function Resume() {
   return (
-    <section id="resume" className="py-24 border-t border-border">
+    <section id="resume" className="py-24">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <Reveal>
           <SectionHeading eyebrow="Experience & Education" title="Resume" />

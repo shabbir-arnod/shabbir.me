@@ -28,7 +28,7 @@ function ProjectIcon({ icon }: { icon: "baby" | "chart" }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 border-t border-border">
+    <section id="projects" className="py-24">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <Reveal>
           <div className="flex items-end justify-between flex-wrap gap-4">

@@ -19,7 +19,7 @@ function LinkText({ href, children }: { href: string; children: ReactNode }) {
 
 export default function About() {
   return (
-    <section id="about" className="py-24 border-t border-border">
+    <section id="about" className="py-24">
       <div className="mx-auto max-w-3xl px-6 sm:px-8 text-center">
         <Reveal>
           <div className="mx-auto flex h-28 w-28 items-center justify-center overflow-hidden rounded-full">

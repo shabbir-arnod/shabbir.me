@@ -4,7 +4,7 @@ import SectionHeading from "@/components/SectionHeading";
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 border-t border-border">
+    <section id="skills" className="py-24">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <Reveal>
           <SectionHeading eyebrow="Skills" title="The toolkit behind the roadmap" />

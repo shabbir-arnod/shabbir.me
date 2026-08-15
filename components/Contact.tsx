@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 border-t border-border relative overflow-hidden">
+    <section id="contact" className="py-24 relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(77,141,255,0.12),_transparent_55%)]" />
 
       <div className="mx-auto max-w-3xl px-6 sm:px-8 relative text-center">
