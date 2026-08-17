@@ -188,21 +188,7 @@ export const skillGroups = [
   },
   {
     title: "Cloud & Data",
-    skills: [
-      "AWS",
-      "Azure",
-      "Lambda",
-      "S3",
-      "DynamoDB",
-      "Step Functions",
-      "Kafka",
-      "RabbitMQ",
-      "AMQP",
-      "XML",
-      "JSON",
-      "SQL",
-      "Python",
-    ],
+    skills: ["AWS", "Azure", "Apache Kafka", "RabbitMQ", "XML", "JSON", "SQL", "Python"],
   },
   {
     title: "Reporting & Tools",

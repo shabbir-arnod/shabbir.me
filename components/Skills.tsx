@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { skillGroups } from "@/lib/data";
 import { toolIcons } from "@/lib/toolIcons";
 import Reveal from "@/components/Reveal";
@@ -20,13 +21,24 @@ export default function Skills() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => {
-                    const Icon = toolIcons[skill];
+                    const tool = toolIcons[skill];
                     return (
                       <span
                         key={skill}
                         className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-sm text-muted hover:border-accent hover:text-accent transition-colors"
                       >
-                        {Icon && <Icon className="h-4 w-4 shrink-0" />}
+                        {tool?.kind === "glyph" && (
+                          <tool.Icon className="h-4 w-4 shrink-0" style={{ color: tool.color }} />
+                        )}
+                        {tool?.kind === "image" && (
+                          <Image
+                            src={tool.src}
+                            alt=""
+                            width={16}
+                            height={16}
+                            className="h-4 w-4 shrink-0 object-contain"
+                          />
+                        )}
                         {skill}
                       </span>
                     );
