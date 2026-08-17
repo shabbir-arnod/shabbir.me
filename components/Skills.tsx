@@ -1,4 +1,5 @@
 import { skillGroups } from "@/lib/data";
+import { toolIcons } from "@/lib/toolIcons";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -18,14 +19,18 @@ export default function Skills() {
                   {group.title}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-border px-3.5 py-1.5 text-sm text-muted hover:border-accent hover:text-accent transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {group.skills.map((skill) => {
+                    const Icon = toolIcons[skill];
+                    return (
+                      <span
+                        key={skill}
+                        className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-sm text-muted hover:border-accent hover:text-accent transition-colors"
+                      >
+                        {Icon && <Icon className="h-4 w-4 shrink-0" />}
+                        {skill}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </Reveal>
