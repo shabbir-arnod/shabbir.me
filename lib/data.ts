@@ -27,7 +27,6 @@ export type ResumeItem = {
   period: string;
   description: string;
   highlights: string[];
-  related: string[];
   gradient: string;
   accent: string;
 };
@@ -47,7 +46,6 @@ export const resumeItems: ResumeItem[] = [
       "Created a full AWS migration blueprint and led a working group across 5 platform teams to settle a Kafka versus RabbitMQ streaming decision.",
       "Built Grafana dashboards for uptime and latency and Power BI dashboards for OKRs and market coverage, presenting roadmaps to Director, SVP and EVP stakeholders.",
     ],
-    related: ["Unified Odds Feed", "AWS Migration Blueprint", "Grafana & Power BI"],
     gradient: "linear-gradient(135deg, #241454 0%, #4b2fb0 100%)",
     accent: "#b9a6ff",
   },
@@ -65,7 +63,6 @@ export const resumeItems: ResumeItem[] = [
       "Supervised 4 onshore developers and coordinated backlog management, sprint delivery, change control, UAT and client handover.",
       "Founded and hosted a monthly culture appreciation series as Head of Inclusion and Diversity, UK.",
     ],
-    related: ["AWS Certified Solutions Architect", "AWS Certified Cloud Practitioner"],
     gradient: "linear-gradient(135deg, #063a3a 0%, #0d8a86 100%)",
     accent: "#7fe9de",
   },
@@ -83,7 +80,6 @@ export const resumeItems: ResumeItem[] = [
       "Generated settlement and exception reports in Excel and SQL while maintaining audit trails supporting AML, KYC and sanctions screening.",
       "Built Excel macros and VBA scripts that cut manual processing time by 40%, and supported UAT for payment system upgrades.",
     ],
-    related: ["PSPO I Certified Product Owner", "ICAgile Certified Product Owner"],
     gradient: "linear-gradient(135deg, #3d0f1f 0%, #8a1f3d 100%)",
     accent: "#ff9fb3",
   },
@@ -96,7 +92,6 @@ export const resumeItems: ResumeItem[] = [
     description:
       "Hatfield, United Kingdom. 2:1 Merit. Modules covered global e-commerce, marketing across culture, financial data analysis and the global economy.",
     highlights: [],
-    related: ["Global E-Commerce", "Financial Data Analysis", "Global Economy"],
     gradient: "linear-gradient(135deg, #3a2e05 0%, #8a6d10 100%)",
     accent: "#ffd75e",
   },
@@ -108,7 +103,6 @@ export const resumeItems: ResumeItem[] = [
     period: "June 2014, April 2017",
     description: "Pune, Maharashtra. 2:1 Merit.",
     highlights: [],
-    related: ["Business Management", "International Business"],
     gradient: "linear-gradient(135deg, #0b3a22 0%, #1f8a52 100%)",
     accent: "#6bf0a0",
   },
