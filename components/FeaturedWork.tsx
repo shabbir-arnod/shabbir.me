@@ -1,4 +1,4 @@
-import { flagshipWork } from "@/lib/data";
+import { workItems } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 
 function LayersIcon() {
@@ -21,51 +21,61 @@ export default function FeaturedWork() {
             Product
           </span>
           <h2 className="mt-4 font-display font-extrabold text-3xl sm:text-4xl text-foreground max-w-2xl">
-            What I run at {flagshipWork.org}
+            Products I run
           </h2>
-          <p className="mt-4 max-w-2xl text-base sm:text-lg text-muted leading-relaxed">
-            {flagshipWork.summary}
-          </p>
         </Reveal>
 
-        <Reveal delay={100}>
-          <div
-            className="mt-10 rounded-3xl px-6 py-10 sm:px-12 sm:py-12"
-            style={{ background: "linear-gradient(135deg, #241454 0%, #4b2fb0 100%)" }}
-          >
-            <p className="text-xs font-display font-bold uppercase tracking-widest text-[#b9a6ff]">
-              {flagshipWork.org}
-            </p>
-            <h3 className="mt-2 font-display font-extrabold text-2xl sm:text-3xl text-white">
-              {flagshipWork.product}
-            </h3>
-            <p className="mt-1 text-sm text-white/70">{flagshipWork.role}</p>
-
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-white/15 pt-8">
-              {flagshipWork.stats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="font-display font-extrabold text-xl text-white">{stat.value}</p>
-                  <p className="mt-1 text-xs text-white/70">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              {flagshipWork.links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors px-4 py-2.5 text-sm font-display font-semibold text-white"
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {workItems.map((item, i) => (
+            <Reveal key={item.id} delay={i * 100}>
+              <div
+                className="flex h-full flex-col rounded-3xl px-6 py-8 sm:px-8 sm:py-9"
+                style={{ background: item.gradient }}
+              >
+                <p
+                  className="text-xs font-display font-bold uppercase tracking-widest"
+                  style={{ color: item.accent }}
                 >
-                  {link.label}
-                  <span aria-hidden>&#8599;</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </Reveal>
+                  {item.org}
+                </p>
+                <h3 className="mt-2 font-display font-extrabold text-2xl text-white">
+                  {item.product}
+                </h3>
+                <p className="mt-1 text-sm text-white/70">{item.role}</p>
+
+                <p className="mt-5 text-sm text-white/80 leading-relaxed flex-1">
+                  {item.summary}
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/15 pt-6">
+                  {item.stats.map((stat) => (
+                    <div key={stat.label}>
+                      <p className="font-display font-extrabold text-lg text-white">
+                        {stat.value}
+                      </p>
+                      <p className="mt-0.5 text-xs text-white/70">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {item.links.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors px-4 py-2.5 text-sm font-display font-semibold text-white"
+                    >
+                      {link.label}
+                      <span aria-hidden>&#8599;</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
