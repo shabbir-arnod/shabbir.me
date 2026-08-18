@@ -190,6 +190,18 @@ export const skillGroups = [
   },
 ];
 
+export type Certification = {
+  name: string;
+  issuer: string;
+};
+
+export const certifications: Certification[] = [
+  { name: "AWS Certified Solutions Architect", issuer: "Associate, Amazon Web Services" },
+  { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services" },
+  { name: "Professional Scrum Product Owner I", issuer: "Scrum.org" },
+  { name: "ICAgile Certified Product Owner", issuer: "ICAgile" },
+];
+
 export type WorkItem = {
   id: string;
   org: string;

@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { skillGroups } from "@/lib/data";
+import { certifications, skillGroups } from "@/lib/data";
 import { toolIcons } from "@/lib/toolIcons";
+import { certIcons } from "@/lib/certIcons";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -48,6 +49,36 @@ export default function Skills() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={skillGroups.length * 100}>
+          <div className="mt-10">
+            <p className="font-display font-bold text-lg text-foreground mb-4">
+              Certifications
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {certifications.map((cert) => {
+                const icon = certIcons[cert.name];
+                const Icon = icon?.Icon;
+                return (
+                  <div
+                    key={cert.name}
+                    className="inline-flex items-center gap-3 rounded-2xl border border-border px-4 py-3 hover:border-accent transition-colors"
+                  >
+                    {Icon && (
+                      <Icon className="h-5 w-5 shrink-0" style={{ color: icon.color }} />
+                    )}
+                    <div>
+                      <p className="text-sm font-display font-semibold text-foreground">
+                        {cert.name}
+                      </p>
+                      <p className="text-xs text-muted mt-0.5">{cert.issuer}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
