@@ -58,22 +58,31 @@ export default function Skills() {
             <div className="flex flex-wrap gap-3">
               {certifications.map((cert) => {
                 const icon = certIcons[cert.name];
-                const Icon = icon?.Icon;
                 return (
-                  <div
+                  <a
                     key={cert.name}
+                    href={cert.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 rounded-2xl border border-border px-4 py-3 hover:border-accent transition-colors"
                   >
-                    {Icon && (
-                      <Icon className="h-5 w-5 shrink-0" style={{ color: icon.color }} />
+                    {icon?.kind === "image" && (
+                      <Image
+                        src={icon.src}
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="h-8 w-8 shrink-0 object-contain"
+                      />
                     )}
+                    {icon?.kind === "glyph" && <icon.Icon className="h-8 w-8 shrink-0" />}
                     <div>
                       <p className="text-sm font-display font-semibold text-foreground">
                         {cert.name}
                       </p>
                       <p className="text-xs text-muted mt-0.5">{cert.issuer}</p>
                     </div>
-                  </div>
+                  </a>
                 );
               })}
             </div>

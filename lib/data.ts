@@ -193,13 +193,40 @@ export const skillGroups = [
 export type Certification = {
   name: string;
   issuer: string;
+  href: string;
 };
 
 export const certifications: Certification[] = [
-  { name: "AWS Certified Solutions Architect", issuer: "Associate, Amazon Web Services" },
-  { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services" },
-  { name: "Professional Scrum Product Owner I", issuer: "Scrum.org" },
-  { name: "ICAgile Certified Product Owner", issuer: "ICAgile" },
+  {
+    name: "AI for Product Management",
+    issuer: "Pendo.io",
+    href: "https://www.credly.com/badges/42ccabda-4ce7-4f5c-b913-f4e197e65c56/linked_in_profile",
+  },
+  {
+    name: "Introduction to AI",
+    issuer: "Google",
+    href: "https://www.coursera.org/account/accomplishments/verify/GHN3HOO7K3JJ",
+  },
+  {
+    name: "Professional Scrum Product Owner™ I (PSPO I)",
+    issuer: "Scrum.org",
+    href: "https://www.credly.com/badges/366a240b-a998-4bfe-8310-3af1a36919bc/linked_in_profile",
+  },
+  {
+    name: "Agile Product Ownership",
+    issuer: "ICAgile",
+    href: "https://www.credly.com/badges/3b92108b-7a6d-43c9-9e00-dae411dc3c8f/linked_in_profile",
+  },
+  {
+    name: "AWS Certified Solutions Architect, Associate",
+    issuer: "AWS",
+    href: "https://www.credly.com/badges/a1ca8742-0180-4fae-88a7-f534f4dcd790/linked_in_profile",
+  },
+  {
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "AWS",
+    href: "https://www.credly.com/badges/ee6ece87-576c-4cd2-8a9b-bd3d8fe5d141?source=linked_in_profile",
+  },
 ];
 
 export type WorkItem = {
