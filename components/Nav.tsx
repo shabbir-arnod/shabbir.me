@@ -5,6 +5,7 @@ import Image from "next/image";
 import avatar from "@/public/avatar.webp";
 
 const links = [
+  { href: "#work", label: "Work" },
   { href: "#projects", label: "Projects" },
   { href: "#resume", label: "Resume" },
   { href: "#skills", label: "Skills" },

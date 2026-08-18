@@ -195,3 +195,26 @@ export const skillGroups = [
     skills: ["Grafana", "Power BI", "Splunk", "JIRA", "Confluence", "Miro", "Figma"],
   },
 ];
+
+export const flagshipWork = {
+  org: "Sportradar",
+  product: "Unified Odds Feed",
+  role: "Technical Product Manager",
+  summary:
+    "I'm the product manager for the Unified Odds Feed, Sportradar's real time sports odds and data distribution platform. My team owns the REST APIs and the RabbitMQ (AMQP) message feeds that stream live odds, scores and fixture data to every client integration, and the product documentation both are built against.",
+  stats: [
+    { label: "Betting operators served", value: "250+" },
+    { label: "Delivery", value: "REST API & AMQP" },
+    { label: "Messaging", value: "RabbitMQ feeds" },
+  ],
+  links: [
+    {
+      label: "Product documentation",
+      href: "https://docs.sportradar.com/uof",
+    },
+    {
+      label: "Interactive API docs",
+      href: "https://iodocs.betradar.com/?urls.primaryName=Unified%20Feed",
+    },
+  ],
+};
