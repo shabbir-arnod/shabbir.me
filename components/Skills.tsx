@@ -55,7 +55,7 @@ export default function Skills() {
             <p className="font-display font-bold text-lg text-foreground mb-4">
               Certifications
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2">
               {certifications.map((cert) => {
                 const icon = certIcons[cert.name];
                 return (
@@ -64,24 +64,19 @@ export default function Skills() {
                     href={cert.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 rounded-2xl border border-border px-4 py-3 hover:border-accent transition-colors"
+                    className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-sm text-muted hover:border-accent hover:text-accent transition-colors"
                   >
                     {icon?.kind === "image" && (
                       <Image
                         src={icon.src}
                         alt=""
-                        width={32}
-                        height={32}
-                        className="h-8 w-8 shrink-0 object-contain"
+                        width={16}
+                        height={16}
+                        className="h-4 w-4 shrink-0 object-contain"
                       />
                     )}
-                    {icon?.kind === "glyph" && <icon.Icon className="h-8 w-8 shrink-0" />}
-                    <div>
-                      <p className="text-sm font-display font-semibold text-foreground">
-                        {cert.name}
-                      </p>
-                      <p className="text-xs text-muted mt-0.5">{cert.issuer}</p>
-                    </div>
+                    {icon?.kind === "glyph" && <icon.Icon className="h-4 w-4 shrink-0" />}
+                    {cert.name} &middot; {cert.issuer}
                   </a>
                 );
               })}
