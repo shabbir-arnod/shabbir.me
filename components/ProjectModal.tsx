@@ -103,10 +103,7 @@ export default function ProjectModal({
 
           {project.screenshots && project.screenshots.length > 0 && (
             <div className="mt-6">
-              <h3 className="font-display font-semibold text-sm uppercase tracking-wide text-muted">
-                Screenshots
-              </h3>
-              <div className="relative mt-3">
+              <div className="relative">
                 {canScrollLeft && (
                   <button
                     onClick={() => scrollBy(-1)}
