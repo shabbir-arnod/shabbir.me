@@ -1,6 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import { projects, profile } from "@/lib/data";
+import type { Project } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import ProjectModal from "@/components/ProjectModal";
 
 function ProjectIcon({ icon }: { icon: "baby" | "chart" }) {
   if (icon === "baby") {
@@ -27,6 +32,8 @@ function ProjectIcon({ icon }: { icon: "baby" | "chart" }) {
 }
 
 export default function Projects() {
+  const [openProject, setOpenProject] = useState<Project | null>(null);
+
   return (
     <section id="projects" className="py-24">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
@@ -45,14 +52,12 @@ export default function Projects() {
         </Reveal>
 
         <div className="mt-12 flex gap-6 overflow-x-auto card-scroll pb-4 -mx-6 px-6 sm:mx-0 sm:px-0">
-          {projects.map((project, i) => (
-            <Reveal key={project.name} delay={i * 120} className="shrink-0 w-[320px] sm:w-[360px]">
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex h-full flex-col rounded-2xl border border-border bg-background-alt overflow-hidden hover:border-accent transition-colors"
-              >
+          {projects.map((project, i) => {
+            const hasDetail = Boolean(project.screenshots?.length);
+            const cardClassName =
+              "group flex h-full w-full flex-col rounded-2xl border border-border bg-background-alt overflow-hidden hover:border-accent transition-colors text-left";
+            const cardBody = (
+              <>
                 <div
                   className="relative h-44 flex items-center justify-center"
                   style={{ background: project.tileGradient }}
@@ -86,12 +91,38 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+                  {hasDetail && (
+                    <p className="mt-4 text-xs font-display font-semibold text-accent">
+                      Click to see features &amp; screenshots &rarr;
+                    </p>
+                  )}
                 </div>
-              </a>
-            </Reveal>
-          ))}
+              </>
+            );
+
+            return (
+              <Reveal key={project.name} delay={i * 120} className="shrink-0 w-[320px] sm:w-[360px]">
+                {hasDetail ? (
+                  <button type="button" onClick={() => setOpenProject(project)} className={cardClassName}>
+                    {cardBody}
+                  </button>
+                ) : (
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cardClassName}
+                  >
+                    {cardBody}
+                  </a>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
+
+      {openProject && <ProjectModal project={openProject} onClose={() => setOpenProject(null)} />}
     </section>
   );
 }

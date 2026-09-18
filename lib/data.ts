@@ -118,6 +118,7 @@ export type Project = {
   icon: "baby" | "chart";
   tileGradient: string;
   badgeColor: string;
+  screenshots?: { src: string; alt: string }[];
 };
 
 export const projects: Project[] = [
@@ -137,6 +138,13 @@ export const projects: Project[] = [
     icon: "baby",
     tileGradient: "linear-gradient(135deg, #ff9fc8 0%, #ff6fa0 100%)",
     badgeColor: "#ff6fa0",
+    screenshots: [
+      { src: "/projects/pregg/dashboard.png", alt: "Pregg dashboard showing the current pregnancy week, today's reminders, and blood pressure and weight trend charts" },
+      { src: "/projects/pregg/reminders.png", alt: "Pregg reminders screen with today's medicine and exercise reminders and the full recurring reminder list" },
+      { src: "/projects/pregg/blood-pressure.png", alt: "Pregg blood pressure screen with a trend chart, a Normal status badge, and reading history" },
+      { src: "/projects/pregg/weight.png", alt: "Pregg weight screen with a trend chart, unit toggle, and total change since the first entry" },
+      { src: "/projects/pregg/baby.png", alt: "Pregg baby screen with pregnancy week and size, a symptom log, and a kick counter" },
+    ],
   },
   {
     name: "Junior Trading Analyst",
