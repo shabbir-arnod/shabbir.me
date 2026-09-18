@@ -17,10 +17,21 @@ export default function ProjectModal({
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const screenshots = project.screenshots ?? [];
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        if (lightboxIndex !== null) setLightboxIndex(null);
+        else onClose();
+      } else if (lightboxIndex !== null && screenshots.length > 1) {
+        if (e.key === "ArrowLeft") {
+          setLightboxIndex((i) => (i === null ? i : (i - 1 + screenshots.length) % screenshots.length));
+        } else if (e.key === "ArrowRight") {
+          setLightboxIndex((i) => (i === null ? i : (i + 1) % screenshots.length));
+        }
+      }
     };
     document.addEventListener("keydown", onKeyDown);
     document.body.style.overflow = "hidden";
@@ -28,7 +39,7 @@ export default function ProjectModal({
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
     };
-  }, [onClose]);
+  }, [onClose, lightboxIndex, screenshots.length]);
 
   const updateScrollButtons = () => {
     const el = scrollRef.current;
@@ -123,13 +134,16 @@ export default function ProjectModal({
                   onScroll={updateScrollButtons}
                   className="flex gap-4 overflow-x-auto card-scroll pb-2 -mx-6 px-6 sm:-mx-8 sm:px-8"
                 >
-                  {project.screenshots.map((shot) => (
-                    <div
+                  {screenshots.map((shot, i) => (
+                    <button
                       key={shot.src}
-                      className="shrink-0 w-[200px] rounded-xl border border-border overflow-hidden bg-background"
+                      type="button"
+                      onClick={() => setLightboxIndex(i)}
+                      aria-label={`View ${shot.alt} full size`}
+                      className="shrink-0 w-[200px] rounded-xl border border-border overflow-hidden bg-background cursor-zoom-in hover:opacity-90 transition-opacity"
                     >
                       <Image src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} className="w-full h-auto" />
-                    </div>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -154,6 +168,72 @@ export default function ProjectModal({
           </a>
         </div>
       </div>
+
+      {lightboxIndex !== null && screenshots[lightboxIndex] && (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/90 p-4 sm:p-10"
+          onClick={(e) => {
+            e.stopPropagation();
+            setLightboxIndex(null);
+          }}
+        >
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(null);
+            }}
+            aria-label="Close screenshot viewer"
+            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M6 6 L18 18 M18 6 L6 18" />
+            </svg>
+          </button>
+
+          {screenshots.length > 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex((i) => (i === null ? i : (i - 1 + screenshots.length) % screenshots.length));
+              }}
+              aria-label="View previous screenshot"
+              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 6 L9 12 L15 18" />
+              </svg>
+            </button>
+          )}
+          {screenshots.length > 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex((i) => (i === null ? i : (i + 1) % screenshots.length));
+              }}
+              aria-label="View next screenshot"
+              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 6 L15 12 L9 18" />
+              </svg>
+            </button>
+          )}
+
+          {/* eslint-disable-next-line @next/next/no-img-element -- full-viewport lightbox, intrinsic size varies per project */}
+          <img
+            src={screenshots[lightboxIndex].src}
+            alt={screenshots[lightboxIndex].alt}
+            className="max-h-full max-w-full object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          {screenshots.length > 1 && (
+            <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/70">
+              {lightboxIndex + 1} / {screenshots.length}
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
