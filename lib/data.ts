@@ -118,7 +118,7 @@ export type Project = {
   icon: "baby" | "chart";
   tileGradient: string;
   badgeColor: string;
-  screenshots?: { src: string; alt: string }[];
+  screenshots?: { src: string; alt: string; width: number; height: number }[];
 };
 
 export const projects: Project[] = [
@@ -139,11 +139,11 @@ export const projects: Project[] = [
     tileGradient: "linear-gradient(135deg, #ff9fc8 0%, #ff6fa0 100%)",
     badgeColor: "#ff6fa0",
     screenshots: [
-      { src: "/projects/pregg/dashboard.png", alt: "Pregg dashboard showing the current pregnancy week, today's reminders, and blood pressure and weight trend charts" },
-      { src: "/projects/pregg/reminders.png", alt: "Pregg reminders screen with today's medicine and exercise reminders and the full recurring reminder list" },
-      { src: "/projects/pregg/blood-pressure.png", alt: "Pregg blood pressure screen with a trend chart, a Normal status badge, and reading history" },
-      { src: "/projects/pregg/weight.png", alt: "Pregg weight screen with a trend chart, unit toggle, and total change since the first entry" },
-      { src: "/projects/pregg/baby.png", alt: "Pregg baby screen with pregnancy week and size, a symptom log, and a kick counter" },
+      { src: "/projects/pregg/dashboard.png", alt: "Pregg dashboard showing the current pregnancy week, today's reminders, and blood pressure and weight trend charts", width: 390, height: 844 },
+      { src: "/projects/pregg/reminders.png", alt: "Pregg reminders screen with today's medicine and exercise reminders and the full recurring reminder list", width: 390, height: 844 },
+      { src: "/projects/pregg/blood-pressure.png", alt: "Pregg blood pressure screen with a trend chart, a Normal status badge, and reading history", width: 390, height: 844 },
+      { src: "/projects/pregg/weight.png", alt: "Pregg weight screen with a trend chart, unit toggle, and total change since the first entry", width: 390, height: 844 },
+      { src: "/projects/pregg/baby.png", alt: "Pregg baby screen with pregnancy week and size, a symptom log, and a kick counter", width: 390, height: 844 },
     ],
   },
   {
@@ -162,6 +162,13 @@ export const projects: Project[] = [
     icon: "chart",
     tileGradient: "linear-gradient(135deg, #4ade80 0%, #16a34a 100%)",
     badgeColor: "#22c55e",
+    screenshots: [
+      { src: "/projects/jta/dashboard.png", alt: "Junior Trading Analyst dashboard with commodities, indices, and a demo mode banner", width: 1440, height: 960 },
+      { src: "/projects/jta/watchlist.png", alt: "Watchlist at a glance with each stock's price, day change, and Bullish, Neutral, or Bearish signal", width: 1440, height: 960 },
+      { src: "/projects/jta/stock-signal.png", alt: "Per-stock signal breakdown showing score, analyst target, market cap, relative strength, and a timing view", width: 1440, height: 960 },
+      { src: "/projects/jta/stock-chart-news.png", alt: "Two-year price chart, key numbers table, and recent news for a tracked stock", width: 1440, height: 960 },
+      { src: "/projects/jta/alerts.png", alt: "Alerts tab for setting price or signal conditions on any tracked ticker", width: 1440, height: 960 },
+    ],
   },
 ];
 

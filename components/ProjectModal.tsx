@@ -128,7 +128,7 @@ export default function ProjectModal({
                       key={shot.src}
                       className="shrink-0 w-[200px] rounded-xl border border-border overflow-hidden bg-background"
                     >
-                      <Image src={shot.src} alt={shot.alt} width={390} height={844} className="w-full h-auto" />
+                      <Image src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} className="w-full h-auto" />
                     </div>
                   ))}
                 </div>
